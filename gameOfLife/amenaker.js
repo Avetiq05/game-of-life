@@ -1,4 +1,5 @@
-class Amenaker extends LivingCreature {
+let LivingCreature = require("./LivingCreature")
+module.exports = class amenaker extends LivingCreature{
     constructor(x, y) {
         super(x, y)
 
@@ -50,7 +51,7 @@ class Amenaker extends LivingCreature {
 
     mul() {
         let emptyCell = this.chooseCell(0);
-        let newCell = random(emptyCell)
+        let newCell = emptyCell(Math.floor(Math.random() * emptyCell.length))
 
         if (newCell && this.energy > 5) {
 
@@ -66,7 +67,7 @@ class Amenaker extends LivingCreature {
     }
     eat() {
         let emptyCell = this.chooseCell(2, 3, 5);
-        let newCell = random(emptyCell)
+        let newCell = emptyCell(Math.floor(Math.random() * emptyCell.length))
         console.log(newCell);
 
         if (newCell) {
@@ -112,7 +113,7 @@ class Amenaker extends LivingCreature {
     }
     move() {
         let emptyCell = this.chooseCell(0);
-        let newCell = random(emptyCell)
+        let newCell = emptyCell(Math.floor(Math.random() * emptyCell.length))
         if (newCell) {
             let newX = newCell[0];
             let newY = newCell[1];

@@ -1,4 +1,5 @@
-class Poison extends LivingCreature{ 
+let LivingCreature = require("./LivingCreature")
+module.exports = class poison  extends LivingCreature{
     constructor(x,y){
         super(x,y)
              
@@ -29,30 +30,31 @@ class Poison extends LivingCreature{
 
         if (y < matrix.length && y >= 0 && x < matrix[0].length && x >= 0) {
             if (matrix[y][x] == char) {
-                found.push(this.directions[i]);
             }
         }
         
     }
 
         return found
-}
-mul() {
-    let emptyCell = this.chooseCell(0);
-    let newCell = random(emptyCell)
+    mul()
+    {
 
-    if (newCell && this.energy > 5) {
+        let emptyCell = this.chooseCell(0);
+        let newCell = emptyCell(Math.floor(Math.random() * emptyCell.length))
 
-        let newX = newCell[0];
-        let newY = newCell[1];
+        if (newCell && this.energy > 5) {
 
-        let pois= new Poison(newX, newY);
-        matrix[newY][newX] = 5;
-       poisonArr.push(pois);
+            let newX = newCell[0];
+            let newY = newCell[1];
 
-        this.energy = 12;
+            let pois= new Poison(newX, newY);
+            matrix[newY][newX] = 5;
+        poisonArr.push(pois);
+
+            this.energy = 12;
+        }
     }
-}
 
+}
 
 }

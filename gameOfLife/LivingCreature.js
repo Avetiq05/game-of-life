@@ -1,4 +1,4 @@
-class LivingCreature {
+module.exports = class LivingCreature{
 
 
 
